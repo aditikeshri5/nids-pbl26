@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Playfair Display', 'Georgia', 'serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -46,6 +50,16 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        slide: {
+          navy: "hsl(var(--slide-navy))",
+          "navy-light": "hsl(var(--slide-navy-light))",
+          "navy-mid": "hsl(var(--slide-navy-mid))",
+          cyan: "hsl(var(--slide-cyan))",
+          "cyan-glow": "hsl(var(--slide-cyan-glow))",
+          gold: "hsl(var(--slide-gold))",
+          green: "hsl(var(--slide-green))",
+          red: "hsl(var(--slide-red))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
