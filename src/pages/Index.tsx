@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import CountdownTimer from "@/components/CountdownTimer";
+import CountUpTimer from "@/components/CountdownTimer";
 import SectionLabel from "@/components/SectionLabel";
 import Flowchart from "@/components/Flowchart";
 import LiveDemo from "@/components/LiveDemo";
@@ -9,13 +9,13 @@ const Index = () => {
   return (
     <div className="bg-background text-foreground">
       <Navbar />
-      <CountdownTimer />
+      <CountUpTimer />
 
       {/* HERO */}
       <section id="hero" className="section-slide items-center text-center" style={{ background: "var(--gradient-hero)" }}>
         <div className="max-w-4xl mx-auto animate-fade-up">
           <span className="inline-block px-4 py-1.5 rounded-full bg-secondary text-primary text-xs font-semibold tracking-wider uppercase mb-6 glow-border">
-            Academic Prototype
+            Academic Demonstration Prototype
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-foreground">
             Hybrid Network Intrusion Detection System using{" "}
@@ -26,7 +26,7 @@ const Index = () => {
             PBL 2026 — Department of Computer Science & Engineering
           </p>
           <div className="mt-8 space-y-1 text-sm text-muted-foreground">
-            <p>Registration No: <span className="text-foreground font-mono">[ Student ID ]</span></p>
+            <p>Registration No: <span className="text-foreground font-mono">2427030217</span></p>
             <p className="font-medium text-foreground/80">Manipal University Jaipur</p>
           </div>
         </div>
@@ -39,20 +39,20 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                title: "What is Network Intrusion Detection?",
-                text: "A Network Intrusion Detection System (NIDS) monitors network traffic to identify suspicious patterns that may indicate unauthorized access or malicious activity.",
+                title: "Growth of Cyber Threats",
+                text: "Network-based cyber threats are increasing exponentially, targeting both enterprise and personal systems through sophisticated attack vectors that traditional security measures struggle to address.",
               },
               {
-                title: "Limitations of Traditional IDS",
-                text: "Traditional IDS rely on signature-based detection or deep packet inspection — both of which fail when traffic is encrypted, as modern protocols increasingly mandate.",
+                title: "Encrypted Traffic Challenge",
+                text: "Modern network protocols increasingly mandate encryption, making traditional deep packet inspection and signature-based intrusion detection systems ineffective at identifying malicious activity.",
               },
               {
-                title: "Why Behavioral Detection Matters",
-                text: "Detecting abnormal behavior through metadata analysis (connection counts, timing, flow patterns) circumvents the need for payload inspection while maintaining detection efficacy.",
+                title: "Need for Behavioral Detection",
+                text: "Behavior-based intrusion detection analyzes metadata patterns — connection counts, timing, flow characteristics — to identify suspicious activity without inspecting encrypted payloads.",
               },
               {
-                title: "Our Focus",
-                text: "We focus on detecting suspicious network activity through metadata-based behavioral analysis rather than payload inspection, ensuring both privacy compliance and detection accuracy.",
+                title: "Data Integrity & Authentication",
+                text: "Ensuring the integrity and authenticity of network traffic metadata is critical. Cryptographic hashing provides tamper-proof verification of collected data before ML-based analysis.",
               },
             ].map((card, i) => (
               <div key={i} className="bg-card-gradient glow-border rounded-xl p-6 hover:glow-cyan transition-shadow duration-300">
@@ -64,10 +64,81 @@ const Index = () => {
         </div>
       </section>
 
+      {/* LITERATURE REVIEW */}
+      <section id="literature" className="section-slide">
+        <div className="max-w-4xl mx-auto">
+          <SectionLabel number="02" title="Literature Review" />
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: "Traditional IDS Approaches",
+                summary: "Signature-based and rule-based intrusion detection systems match known attack patterns but fail against zero-day attacks and cannot inspect encrypted payloads.",
+              },
+              {
+                title: "ML-Based Intrusion Detection",
+                summary: "Machine learning classifiers (Random Forest, SVM, deep learning) trained on datasets like NSL-KDD show improved detection accuracy, especially for anomaly-based classification.",
+              },
+              {
+                title: "Cryptography-Assisted Security",
+                summary: "SHA-256 and other cryptographic techniques ensure data integrity in monitoring pipelines, providing tamper-proof logging and authentication of traffic metadata.",
+              },
+              {
+                title: "Limitations of Existing Systems",
+                summary: "Current IDS solutions lack integration between cryptographic verification and ML-based behavioral analysis, and most fail when traffic is encrypted end-to-end.",
+              },
+            ].map((paper, i) => (
+              <div key={i} className="bg-card-gradient glow-border rounded-xl p-6">
+                <h3 className="text-sm font-semibold text-foreground mb-2">{paper.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{paper.summary}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* RESEARCH GAP / INNOVATION */}
+      <section id="research-gap" className="section-slide">
+        <div className="max-w-4xl mx-auto">
+          <SectionLabel number="03" title="Research Gap & Innovation" />
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-sm font-semibold text-slide-red mb-4 uppercase tracking-wider">Research Gap</h3>
+              <ul className="space-y-3">
+                {[
+                  "Existing systems rely heavily on payload inspection, which fails with encrypted traffic",
+                  "Encrypted protocols (TLS/SSL) reduce effectiveness of traditional signature-based IDS",
+                  "Lack of integration between cryptographic authentication and ML-based behavioral detection",
+                  "Limited research on combining data integrity verification with real-time classification",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <span className="text-slide-red mt-0.5">✗</span> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slide-green mb-4 uppercase tracking-wider">Our Innovation</h3>
+              <ul className="space-y-3">
+                {[
+                  "Cryptographic hashing (SHA-256) ensures data integrity of collected metadata",
+                  "ML-based behavioral analysis instead of payload inspection",
+                  "Both offline dataset-based and live browser activity detection demonstrated",
+                  "Privacy-preserving approach with full ethical compliance",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <span className="text-slide-green mt-0.5">✓</span> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* METHODOLOGY */}
       <section id="methodology" className="section-slide">
         <div className="max-w-5xl mx-auto">
-          <SectionLabel number="02" title="System Methodology" />
+          <SectionLabel number="04" title="System Methodology" />
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {[
               {
@@ -76,7 +147,8 @@ const Index = () => {
                 items: [
                   "Offline Dataset: NSL-KDD",
                   "Live Dataset: Browser network activity (Firefox simulation)",
-                  "Metadata-based analysis only",
+                  "Metadata-based feature extraction",
+                  "No packet payload inspection",
                 ],
               },
               {
@@ -84,7 +156,8 @@ const Index = () => {
                 title: "Model / Architecture",
                 items: [
                   "ML: Random Forest Classifier",
-                  "Crypto: SHA-256 hashing for data integrity",
+                  "Crypto: SHA-256 hashing",
+                  "Binary classification (Normal vs Attack)",
                   "Behavioral analysis approach",
                 ],
               },
@@ -92,9 +165,9 @@ const Index = () => {
                 step: "03",
                 title: "Live Execution",
                 items: [
-                  "Simulated live browser activity analysis",
-                  "No packet payload inspection",
-                  "Ethical and secure approach",
+                  "Firefox-based live browsing simulation",
+                  "Secure and ethical monitoring",
+                  "No encrypted payload access",
                 ],
               },
             ].map((card) => (
@@ -121,7 +194,7 @@ const Index = () => {
       {/* DATASET */}
       <section id="dataset" className="section-slide">
         <div className="max-w-4xl mx-auto">
-          <SectionLabel number="03" title="Dataset Details" />
+          <SectionLabel number="05" title="Dataset Details" />
           <div className="bg-card-gradient glow-border rounded-xl p-6 mb-8">
             <h3 className="text-base font-semibold text-foreground mb-3">NSL-KDD Dataset</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
@@ -142,7 +215,10 @@ const Index = () => {
               ))}
             </div>
 
-            <h4 className="text-sm font-semibold text-primary mb-3">Dataset Feature Summary</h4>
+            <h4 className="text-sm font-semibold text-primary mb-3">Preprocessing & Feature Summary</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              Features are extracted from connection-level metadata. Categorical attributes are label-encoded, and numerical features are normalized before being passed to the classifier.
+            </p>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -165,17 +241,17 @@ const Index = () => {
         </div>
       </section>
 
-      {/* LIVE DEMO */}
+      {/* LIVE EXECUTION */}
       <section id="demo" className="section-slide">
         <div className="max-w-4xl mx-auto">
-          <SectionLabel number="04" title="Live Demonstration" />
+          <SectionLabel number="06" title="Live Execution" />
           <div className="bg-card-gradient glow-border rounded-xl p-6 mb-6">
             <h3 className="text-base font-semibold text-foreground mb-3">Browser Activity Simulation</h3>
             <ul className="space-y-2 text-sm text-muted-foreground mb-4">
-              <li className="flex items-start gap-2"><span className="text-primary">›</span> Live browser activity captured through system network metadata</li>
-              <li className="flex items-start gap-2"><span className="text-primary">›</span> Firefox browsing simulation for demonstration</li>
-              <li className="flex items-start gap-2"><span className="text-primary">›</span> No encrypted payload access — metadata only</li>
-              <li className="flex items-start gap-2"><span className="text-primary">›</span> Full ethical compliance maintained</li>
+              <li className="flex items-start gap-2"><span className="text-primary">›</span> Firefox browsing used to generate live network activity</li>
+              <li className="flex items-start gap-2"><span className="text-primary">›</span> Network metadata collection only — no payload access</li>
+              <li className="flex items-start gap-2"><span className="text-primary">›</span> Session-level behavior analysis with SHA-256 hash generation</li>
+              <li className="flex items-start gap-2"><span className="text-primary">›</span> Detection output: Normal Activity or Suspicious Activity Detected</li>
             </ul>
           </div>
           <LiveDemo />
@@ -185,9 +261,9 @@ const Index = () => {
       {/* RESULTS */}
       <section id="results" className="section-slide">
         <div className="max-w-4xl mx-auto">
-          <SectionLabel number="05" title="Results & Analysis" />
+          <SectionLabel number="07" title="Results & Analysis" />
           <p className="text-sm text-muted-foreground mb-2">
-            Comparison of our hybrid cryptography + ML approach against existing traditional IDS solutions.
+            Quantifiable outcomes and evaluation metrics compared to baselines.
           </p>
           <BarChart />
           <div className="mt-8 bg-card-gradient glow-border rounded-xl p-6 max-w-md mx-auto text-center">
@@ -200,106 +276,31 @@ const Index = () => {
         </div>
       </section>
 
-      {/* LITERATURE REVIEW */}
-      <section id="literature" className="section-slide">
-        <div className="max-w-4xl mx-auto">
-          <SectionLabel number="06" title="Literature Review" />
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Traditional IDS Approaches",
-                authors: "Kumar & Clark, 2019",
-                summary: "Survey of signature-based and anomaly-based IDS architectures, highlighting detection limitations with encrypted network traffic.",
-              },
-              {
-                title: "ML-Based Intrusion Detection",
-                authors: "Zhang et al., 2021",
-                summary: "Evaluated Random Forest, SVM, and deep learning classifiers on NSL-KDD, showing ensemble methods achieve superior accuracy on multi-class detection.",
-              },
-              {
-                title: "Cryptographic Security Models",
-                authors: "Patel & Singh, 2020",
-                summary: "Proposed SHA-256 based data integrity verification in network monitoring systems to ensure tamper-proof logging of traffic metadata.",
-              },
-              {
-                title: "Hybrid Detection Frameworks",
-                authors: "Li & Wang, 2022",
-                summary: "Identified gaps in combining cryptographic integrity with ML classification, proposing metadata-driven approaches for privacy-preserving IDS.",
-              },
-            ].map((paper, i) => (
-              <div key={i} className="bg-card-gradient glow-border rounded-xl p-6">
-                <h3 className="text-sm font-semibold text-foreground mb-1">{paper.title}</h3>
-                <p className="text-xs text-primary mb-2 font-mono">{paper.authors}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">{paper.summary}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* LIMITATIONS & FUTURE SCOPE */}
-      <section className="section-slide">
-        <div className="max-w-4xl mx-auto">
-          <SectionLabel number="07" title="Limitations & Future Scope" />
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-sm font-semibold text-slide-red mb-4 uppercase tracking-wider">Limitations</h3>
-              <ul className="space-y-3">
-                {[
-                  "Prototype-level system — not production-ready",
-                  "Threshold-based live detection may yield false positives",
-                  "No real-time packet inspection capability",
-                  "Limited to NSL-KDD for offline evaluation",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="text-slide-red mt-0.5">✗</span> {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-slide-green mb-4 uppercase tracking-wider">Future Scope</h3>
-              <ul className="space-y-3">
-                {[
-                  "ML-based anomaly detection with deep learning",
-                  "Real-time deployment on enterprise networks",
-                  "Enterprise IDS integration with SIEM tools",
-                  "Advanced monitoring dashboards and alerting",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="text-slide-green mt-0.5">✓</span> {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* TEAM */}
       <section id="team" className="section-slide items-center text-center">
         <div className="max-w-2xl mx-auto">
-          <SectionLabel number="08" title="Team & Credits" />
+          <SectionLabel number="08" title="Team & Academic Credits" />
           <div className="bg-card-gradient glow-border rounded-xl p-8 mx-auto">
             <div className="space-y-6">
               <div>
                 <p className="text-xs text-primary uppercase tracking-widest mb-1">Project Guide</p>
-                <p className="text-lg font-semibold text-foreground">[ Guide Name ]</p>
+                <p className="text-lg font-semibold text-foreground">Dr. Surbhi Sharma</p>
               </div>
               <div className="w-16 h-px bg-border mx-auto" />
               <div>
-                <p className="text-xs text-primary uppercase tracking-widest mb-1">Student</p>
-                <p className="text-lg font-semibold text-foreground">[ Student Name ]</p>
-                <p className="text-sm font-mono text-muted-foreground mt-1">Reg. No: [ Registration Number ]</p>
+                <p className="text-xs text-primary uppercase tracking-widest mb-1">Team Member</p>
+                <p className="text-lg font-semibold text-foreground">Aditi Keshri</p>
+                <p className="text-sm font-mono text-muted-foreground mt-1">Reg. No: 2427030217</p>
               </div>
               <div className="w-16 h-px bg-border mx-auto" />
               <div>
                 <p className="text-sm text-muted-foreground">Department of Computer Science & Engineering</p>
                 <p className="text-sm font-medium text-foreground">Manipal University Jaipur</p>
+                <p className="text-xs text-muted-foreground mt-1">PBL 2026</p>
               </div>
             </div>
           </div>
-          <p className="text-xs text-muted-foreground mt-8 italic">PBL 2026 — Academic Prototype</p>
+          <p className="text-xs text-muted-foreground mt-8 italic">PBL 2026 — Academic Demonstration Prototype</p>
         </div>
       </section>
 

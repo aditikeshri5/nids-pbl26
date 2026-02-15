@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
-const CountdownTimer = () => {
-  const [seconds, setSeconds] = useState(6 * 60 + 30); // 06:30
+const CountUpTimer = () => {
+  const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds((prev) => (prev > 0 ? prev - 1 : 0));
+      setSeconds((prev) => prev + 1);
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -16,7 +16,7 @@ const CountdownTimer = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50 bg-glass rounded-xl px-5 py-3 glow-border animate-pulse-glow">
       <div className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
-        Time Remaining
+        Time Elapsed
       </div>
       <div className="text-2xl font-bold font-mono text-gradient tabular-nums">
         {mins}:{secs}
@@ -25,4 +25,4 @@ const CountdownTimer = () => {
   );
 };
 
-export default CountdownTimer;
+export default CountUpTimer;

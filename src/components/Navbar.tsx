@@ -1,12 +1,13 @@
 import { useState } from "react";
 
 const navItems = [
-  { label: "Problem", href: "#problem" },
+  { label: "Problem Statement", href: "#problem" },
+  { label: "Literature Review", href: "#literature" },
+  { label: "Research Gap", href: "#research-gap" },
   { label: "Methodology", href: "#methodology" },
   { label: "Dataset", href: "#dataset" },
-  { label: "Live Demo", href: "#demo" },
+  { label: "Live Execution", href: "#demo" },
   { label: "Results", href: "#results" },
-  { label: "Literature", href: "#literature" },
   { label: "Team", href: "#team" },
 ];
 
