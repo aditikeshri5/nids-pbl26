@@ -29,14 +29,14 @@ const LiveDemo = () => {
         disabled={loading}
         className="px-8 py-3 rounded-xl font-semibold text-sm bg-primary text-primary-foreground hover:opacity-90 transition-opacity disabled:opacity-50 glow-cyan"
       >
-        {loading ? "Analyzing..." : "▶ Run Live Demo (Simulated)"}
+        {loading ? "Analyzing..." : "▶ Run Live Analysis"}
       </button>
 
       {result && (
         <div className="mt-6 bg-card-gradient glow-border rounded-xl p-6 max-w-lg animate-fade-up">
           <div className="grid gap-3 text-sm">
             <div className="flex justify-between">
-              <span className="text-muted-foreground">Connection Count</span>
+              <span className="text-muted-foreground">Active Connection Count</span>
               <span className="font-mono font-semibold text-foreground">{result.connections}</span>
             </div>
             <div className="flex flex-col gap-1">
@@ -52,7 +52,7 @@ const LiveDemo = () => {
       )}
 
       <p className="text-xs text-muted-foreground mt-4 italic">
-        ⓘ This is a demonstration prototype, not a production IDS.
+        ⓘ This is an academic demonstration of live behavior analysis.
       </p>
     </div>
   );

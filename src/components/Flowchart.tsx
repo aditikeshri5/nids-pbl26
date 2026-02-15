@@ -1,10 +1,10 @@
 const Flowchart = () => {
   const steps = [
-    { label: "Browser / Dataset", icon: "🌐", desc: "NSL-KDD or Live Browser Activity" },
+    { label: "Offline Dataset / Live Browser Activity", icon: "🌐", desc: "NSL-KDD or Firefox simulation" },
     { label: "Feature Extraction", icon: "⚙️", desc: "Metadata & connection attributes" },
     { label: "SHA-256 Hash Generation", icon: "🔐", desc: "Data integrity verification" },
-    { label: "ML / Threshold Analysis", icon: "🤖", desc: "Random Forest classification" },
-    { label: "Normal or Suspicious", icon: "✅", desc: "Final detection output" },
+    { label: "ML / Behavioral Analysis", icon: "🤖", desc: "Random Forest classification" },
+    { label: "Normal / Suspicious Activity", icon: "✅", desc: "Final detection output" },
   ];
 
   return (
